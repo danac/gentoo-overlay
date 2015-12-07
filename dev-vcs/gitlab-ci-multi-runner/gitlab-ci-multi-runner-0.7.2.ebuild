@@ -91,10 +91,5 @@ pkg_postinst() {
 }
 
 pkg_config() {
-	einfo "You need to register the runner with your GitLab CI instance. Please"
-	einfo "Follow the instructions on"
-	einfo
-	einfo "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner/blob/master/docs/install/linux-manually.md"
-	einfo
-	einfo "Perhaps I'll improve the ebuild later ... kthxbye."
+	echo -e "${CI_HOST}\n${CI_TOKEN}\n\n\n" | gitlab-ci-multi-runner register
 }
